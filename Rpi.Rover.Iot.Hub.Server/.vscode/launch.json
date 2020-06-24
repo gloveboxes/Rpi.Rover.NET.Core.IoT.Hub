@@ -3,7 +3,7 @@
     "configurations": [      
         {
             "name": "Raspberry Pi Publish, Launch, and Attach Debugger",
-            "env":{"IOT_HUB_CONNECTION_STRING": "HostName=glovebox-iothub.azure-devices.net;DeviceId=rpi-rover;SharedAccessKey=DKk5sr+bRHhKqdI5L8USRAmTKhN33Xg2muPdZN/N0tQ="},
+            "env":{"IOT_HUB_CONNECTION_STRING": ""},
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "RaspberryPublish",
