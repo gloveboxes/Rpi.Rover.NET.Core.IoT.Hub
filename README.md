@@ -311,9 +311,11 @@ If you do not have an Azure Subscription then [create an Azure Subscription](htt
 
 ## Step 2: Prepare Azure resources
 
-You can prepare Azure cloud resources with the Azure CLI, the Azure Portal Web interface, or deployment templates. For this module, we will be using an Azure deployment template. Click the **Deploy to Azure** button to deploy a Device Provisioning Service and a linked IoT Hub.
+You can prepare Azure cloud resources with the Azure CLI, the Azure Portal Web interface, or deployment templates. For this module, we will be using an Azure deployment template.
 
-[![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/?repository=https://github.com/MicrosoftDocs/Azure-Sphere-Developer-Learning-Path/blob/master/zdocs-vs-code-iot-hub/Lab_2_Send_Telemetry_to_Azure_IoT_Central/setup) 
+Click the **Deploy to Azure** button to deploy an IoT Hub and create a Azure Storage account for the Static Website.
+
+[![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/?repository=https://github.com/MicrosoftDocs/Azure-Sphere-Developer-Learning-Path/blob/master/zdocs-vs-code-iot-hub/Lab_2_Send_Telemetry_to_Azure_IoT_Central/setup)
 
 1. Select or create a new resource group, choose the site located closest to you, and select the IoT Hub Tier. The default IoT Hub tier is the free **F1** tier. You can only have one free IoT Hub per subscription. If you already have a free IoT Hub then either select S1 ([pricing](https://azure.microsoft.com/en-us/pricing/details/iot-hub/)) or delete your existing free IoT Hub before proceeding.
 
@@ -356,87 +358,7 @@ Your code will build, it will be copied to your Raspberry Pi and the debugger wi
 
 ---
 
-## Connect your Raspberry Pi to Azure IoT Hub
 
-1. Follow the "[Create an Azure IoT Hub (Free)](https://docs.microsoft.com/en-us/azure/iot-hub/quickstart-send-telemetry-dotnet?WT.mc_id=github-blog-dglover)" tutorial until the "Send simulated telemetry" section. You will need to the connection string of the device you created.
-
-2. Add the Package references for Azure IoT Hub and JSON.NET. This can either be done by executing the 'dotnet add package' command, or by updating the references directly in the .csproj file.
-
-Open the dotnet.core.iot.csharp.csproj file and update the <ItemGroup> section as follows.
-
-```xml
-<ItemGroup>
-    <PackageReference Include="Iot.Device.Bindings" Version="0.1.0-prerelease*" />
-    <PackageReference Include="Microsoft.Azure.Devices.Client" Version="1.*" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />  
-</ItemGroup>
-```
-
-3. Replace the code in program.cs file with the following code and add your device connection string.
-
-This code will read the Raspberry Pi CPU Temperature, display it, then send the telemetry to Azure IoT Hub.
-
-```c#
-using System;
-using Iot.Device.CpuTemperature;
-using Newtonsoft.Json;
-using Microsoft.Azure.Devices.Client;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-
-namespace dotnet.core.iot
-{
-    class Program
-    {
-        const string DeviceConnectionString = "<Your Azure IoT Hub Connection String>";
-
-        // Replace with the device id you used when you created the device in Azure IoT Hub
-        const string DeviceId = "<Your Device Id>";
-        static DeviceClient _deviceClient = DeviceClient.CreateFromConnectionString(DeviceConnectionString, TransportType.Mqtt);
-        static CpuTemperature _temperature = new CpuTemperature();
-        static int _msgId = 0;
-        const double TemperatureThreshold = 42.0;
-
-        static async Task Main(string[] args)
-        {
-            while (true)
-            {
-                if (_temperature.IsAvailable)
-                {
-                    Console.WriteLine($"The CPU temperature is {Math.Round(_temperature.Temperature.Celsius, 2)}");
-                    await SendMsgIotHub(_temperature.Temperature.Celsius);
-                }
-                Thread.Sleep(2000); // sleep for 2000 milliseconds
-            }
-        }
-
-        private static async Task SendMsgIotHub(double temperature)
-        {
-            var telemetry = new Telemetry() { Temperature = Math.Round(temperature, 2), MessageId = _msgId++ };
-            string json = JsonConvert.SerializeObject(telemetry);
-
-            Console.WriteLine($"Sending {json}");
-
-            Message eventMessage = new Message(Encoding.UTF8.GetBytes(json));
-            eventMessage.Properties.Add("temperatureAlert", (temperature > TemperatureThreshold) ? "true" : "false");
-            await _deviceClient.SendEventAsync(eventMessage).ConfigureAwait(false);
-        }
-
-        class Telemetry
-        {
-            [JsonPropertyAttribute (PropertyName="temperature")] 
-            public double Temperature { get; set; } = 0;
-
-            [JsonPropertyAttribute (PropertyName="messageId")] 
-            public int MessageId { get; set; } = 0;
-
-            [JsonPropertyAttribute (PropertyName="deviceId")] 
-            public string DeviceId {get; set;} = Program.DeviceId;
-        }
-    }
-}
-```
 
 ---
 
@@ -446,13 +368,7 @@ Press F5 to run the current 'Publish, Launch, and Attach Debugger' build task.
 
 ---
 
-## Monitor the Azure IoT Hub Telemetry
 
-1. Install the [Visual Studio IoT Hub Toolkit](https://marketplace.visualstudio.com/itemdetails?itemName=vsciot-vscode.azure-iot-toolkit&WT.mc_id=github-blog-dglover).
-
-2. Review the [Visual Studio IoT Hub Toolkit](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki)] Wiki for information on using the IoT Hub Toolkit Visual Studio Extension.
-
---0
 
 ## References
 
