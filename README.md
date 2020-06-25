@@ -69,6 +69,14 @@ There are plenty of alternate Rover chassis available on various online stores. 
 
 ---
 
+## Solution Architecture
+
+tbc
+
+![](resources/rover-control-static-web-page.png)
+
+---
+
 ## Install Visual Studio Code on your computer
 
 This hands-on lab uses Visual Studio Code. Visual Studio Code is a code editor and is one of the most popular **Open Source** projects on [GitHub](https://github.com/microsoft/vscode). Visual Studio Code runs on Linux, macOS, and Windows.
