@@ -18,11 +18,11 @@ The .NET Core IoT Library connects your applications to hardware. In this walk-t
 
 1. Develop a C# .NET Core IoT application from your Linux, macOS or Windows 10 computer,
 2. Streamline the develop, deploy, and debug process using Visual Studio Code,
-3. Use the [.NET Core IoT](https://dotnet.microsoft.com/apps/iot) library to control motors,
-4. Remote control your Rover robot using [Azure Static websites](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-static-website-how-to?tabs=azure-portal) and [Azure IoT direct methods](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-direct-methods),
-5. Stream telemetry to [Azure IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/about-iot-hub?WT.mc_id=github-blog-dglover),
-6. Capture Rover actions to [Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/) using [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/),
-7. Analysis Rover Actions with [Cosmos DB Jupyter Notebooks](https://docs.microsoft.com/en-us/azure/cosmos-db/cosmosdb-jupyter-notebooks).
+3. Use the [.NET Core IoT](https://dotnet.microsoft.com/apps/iot?WT.mc_id=iot-0000-dglover) library to control motors,
+4. Remote control your Rover robot using [Azure Static websites](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website-how-to?tabs=azure-portal&WT.mc_id=iot-0000-dglover) and [Azure IoT direct methods](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-direct-methods?WT.mc_id=iot-0000-dglover),
+5. Stream telemetry to [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/about-iot-hub?WT.mc_id=iot-0000-dglover),
+6. Capture Rover actions to [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/?WT.mc_id=iot-0000-dglover) using [Azure Functions](https://docs.microsoft.com/azure/azure-functions/?WT.mc_id=iot-0000-dglover),
+7. Analysis Rover Actions with [Cosmos DB Jupyter Notebooks](https://docs.microsoft.com/azure/cosmos-db/cosmosdb-jupyter-notebooks?WT.mc_id=iot-0000-dglover).
 
 ---
 
@@ -30,7 +30,7 @@ The .NET Core IoT Library connects your applications to hardware. In this walk-t
 
 It used by millions of developers, it is mature, fast, supports multiple programming languages (C#, F#, and VB.NET), runs on multiple platforms (Linux, macOS, and Windows), and is supported across multiple processor architectures. It is used to build device, cloud, and IoT applications.
 
-[.NET Core](https://docs.microsoft.com/en-au/dotnet/core?WT.mc_id=github-blog-dglover) is an [open-source](https://github.com/dotnet/coreclr/blob/master/LICENSE.TXT), general-purpose development platform maintained by Microsoft and the .NET community on [GitHub](https://github.com/dotnet/core).
+[.NET Core](https://docs.microsoft.com/dotnet/core?WT.mc_id=iot-0000-dglover) is an [open-source](https://github.com/dotnet/coreclr/blob/master/LICENSE.TXT), general-purpose development platform maintained by Microsoft and the .NET community on [GitHub](https://github.com/dotnet/core).
 
 ---
 
@@ -81,7 +81,7 @@ tbc
 
 This hands-on lab uses Visual Studio Code. Visual Studio Code is a code editor and is one of the most popular **Open Source** projects on [GitHub](https://github.com/microsoft/vscode). Visual Studio Code runs on Linux, macOS, and Windows.
 
-Install **[Visual Studio Code](https://code.visualstudio.com/Download?WT.mc_id=pycon-blog-dglover)**
+Install **[Visual Studio Code](https://code.visualstudio.com/Download?WT.mc_id=iot-0000-dglover)**
 
 
 ---
@@ -110,7 +110,7 @@ The following creates a new SSH key, copies the public key to the Raspberry Pi, 
 
 This tutorial assumes the default **raspberrypi.local** or **raspberrypi** host name using the default **raspberry** password.
 
-1. Open a new terminal command prompt. Windows users must start a [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/install-win10) command prompt.
+1. Open a new terminal command prompt. Windows users must start a [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/windows/wsl/install-win10?WT.mc_id=iot-0000-dglover) command prompt.
 2. Create an SSH certificate and copy the public certificate to the Raspberry Pi. You will be prompted to trust the Raspberry Pi and for the Raspberry Pi password.
 
     ```bash
@@ -125,9 +125,9 @@ This tutorial assumes the default **raspberrypi.local** or **raspberrypi** host 
 
 ## Install .NET Core on your Linux, macOS, Windows computer
 
-1. Open a new terminal command prompt. **Windows** users must start a [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/install-win10) command prompt.
+1. Open a new terminal command prompt. **Windows** users must start a [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/windows/wsl/install-win10?WT.mc_id=iot-0000-dglover) command prompt.
 
-2. Head to the [.NET Core download](https://dotnet.microsoft.com/download) page and install .NET Core. Note, Windows users, as a reminder, you must install .NET Core into your Windows WSL Linux distribution.
+2. Head to the [.NET Core download](https://dotnet.microsoft.com/download?WT.mc_id=iot-0000-dglover) page and install .NET Core. Note, Windows users, as a reminder, you must install .NET Core into your Windows WSL Linux distribution.
 
 ---
 
@@ -135,7 +135,7 @@ This tutorial assumes the default **raspberrypi.local** or **raspberrypi** host 
 
 ### For Linux and Windows WSL users
 
-1. Open a new terminal command prompt. **Windows** users must start a [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/install-win10) command prompt.
+1. Open a new terminal command prompt. **Windows** users must start a [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/windows/wsl/install-win10?WT.mc_id=iot-0000-dglover) command prompt.
 2. Run the following command to install git.
     ```bash
     sudo apt install git
@@ -148,7 +148,7 @@ Download the latest [Git for Mac installer](https://sourceforge.net/projects/git
 
 ## Clone the Rover robot project to your computer
 
-1. Open a new terminal command prompt. **Windows** users must start a [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/install-win10) command prompt.
+1. Open a new terminal command prompt. **Windows** users must start a [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/windows/wsl/install-win10?WT.mc_id=iot-0000-dglover) command prompt.
 2. Change to your preferred projects directory
 3. Clone the Rover project to your computer by runnin the following command.
     ```bash
@@ -171,7 +171,7 @@ Download the latest [Git for Mac installer](https://sourceforge.net/projects/git
     code .
     ```
 4. **Windows WSL** users only. This is a onetime operation.
-    1. You will be prompted to install the [Visual Studio Code Remote WSL Development Extension](https://code.visualstudio.com/docs/remote/wsl). Click **Install**.
+    1. You will be prompted to install the [Visual Studio Code Remote WSL Development Extension](https://code.visualstudio.com/docs/remote/wsl?WT.mc_id=iot-0000-dglover). Click **Install**.
     2. **Reopen** the project with Remote-WSL by pressing <kbd>F1</kbd>, from the Visual Studio prompt, type and select **Remote-SSH**.
 5. You will be prompted to resolve dependencies. Click the Restore button.
 
@@ -257,7 +257,7 @@ Download the latest [Git for Mac installer](https://sourceforge.net/projects/git
 
 1. Open the **.vscode** directory from the Visual Studio Code Explorer
 2. Open and review the **launch.json** file. 
-    > If you renamed your Raspberry Pi you will need to update this file. [Find and Replace](https://code.visualstudio.com/docs/editor/codebasics#_find-and-replace) **raspberrypi** with the host name or IP address of your Raspberry.
+    > If you renamed your Raspberry Pi you will need to update this file. [Find and Replace](https://code.visualstudio.com/docs/editor/codebasics?WT.mc_id=iot-0000-dglover#_find-and-replace) **raspberrypi** with the host name or IP address of your Raspberry.
 
     The launch configuration is responsible for calling the build task, and instructing the Raspberry Pi to start the Visual Studio Code debugger and load the application.
 
@@ -289,7 +289,7 @@ Download the latest [Git for Mac installer](https://sourceforge.net/projects/git
     ```
 
 3. Open and review the **tasks.json** file. 
-    > Again, if you renamed your Raspberry Pi you will need to update this file. [Find and Replace](https://code.visualstudio.com/docs/editor/codebasics#_find-and-replace) **raspberrypi** with the host name or IP address of your Raspberry Pi.
+    > Again, if you renamed your Raspberry Pi you will need to update this file. [Find and Replace](https://code.visualstudio.com/docs/editor/codebasics?WT.mc_id=iot-0000-dglover#_find-and-replace) **raspberrypi** with the host name or IP address of your Raspberry Pi.
 
     The build task is responsible for compiling the application and copying the code to the Raspberry Pi using [rsync](https://en.wikipedia.org/wiki/Rsync). Rsync is a very efficient file transfer protocol, comes standard with Linux, macOS. The first time you build the application the complete application and supporting libraries will be copied to the Raspberry Pi. On subsequent builds, only changed files are copied.
 
@@ -313,7 +313,7 @@ Download the latest [Git for Mac installer](https://sourceforge.net/projects/git
 
 ## Step 1: Create an Azure Subscription
 
-If you do not have an Azure Subscription then [create an Azure Subscription](https://azure.microsoft.com/en-us/free/). Students can sign up for a free [Azure for Students](https://azure.microsoft.com/en-us/free/students/) subscription that does not require credit card verification.
+If you do not have an Azure Subscription then [create an Azure Subscription](https://azure.microsoft.com/free/?WT.mc_id=iot-0000-dglover). Students can sign up for a free [Azure for Students](https://azure.microsoft.com/free/students/?WT.mc_id=iot-0000-dglover) subscription that does not require credit card verification.
 
 ---
 
@@ -325,7 +325,7 @@ Click the **Deploy to Azure** button to deploy Azure resources. An IoT Hub will 
 
 [![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://github.com/gloveboxes/Rpi.Rover.NET.Core.IoT.Hub/tree/master/setup)
 
-1. Select or create a new resource group, choose the site located closest to you, and select the IoT Hub Tier. The default IoT Hub tier is the free **F1** tier. You can only have one free IoT Hub per subscription. If you already have a free IoT Hub then either select S1 ([pricing](https://azure.microsoft.com/en-us/pricing/details/iot-hub/)) or delete your existing free IoT Hub before proceeding.
+1. Select or create a new resource group, choose the site located closest to you, and select the IoT Hub Tier. The default IoT Hub tier is the free **F1** tier. You can only have one free IoT Hub per subscription. If you already have a free IoT Hub then either select S1 ([pricing](https://azure.microsoft.com/pricing/details/iot-hub/?WT.mc_id=iot-0000-dglover)) or delete your existing free IoT Hub before proceeding.
 
     ![](resources/azure-deployment-settings.png)
 
@@ -356,7 +356,7 @@ Click the **Deploy to Azure** button to deploy Azure resources. An IoT Hub will 
 
 ## Build, Deploy and Debug your .NET Core IoT App
 
-Review this [Visual Studio Debugger Guide](https://code.visualstudio.com/resources/editor/debugging?WT.mc_id=github-blog-dglover) if you've not used the debugger before.
+Review this [Visual Studio Debugger Guide](https://code.visualstudio.com/resources/editor/debugging?WT.mc_id=iot-0000-dglover) if you've not used the debugger before.
 
 Set a breakpoint in your code, for example at the 15, and from Visual Studio Code click the Debug icon on the Activity bar, ensure "**Publish, Launch and Attach Debugger**" is selected in the dropdown, and click the green run icon.
 
@@ -382,7 +382,7 @@ Press F5 to run the current 'Publish, Launch, and Attach Debugger' build task.
 
 [Remote Debugging On Linux Arm](https://github.com/OmniSharp/omnisharp-vscode/wiki/Remote-Debugging-On-Linux-Arm)
 
-[Azure IoT libraries for .NET](https://docs.microsoft.com/en-au/dotnet/api/overview/azure/iot?view=azure-dotnet&WT.mc_id=hackster-blog-dglover)
+[Azure IoT libraries for .NET](https://docs.microsoft.com/dotnet/api/overview/azure/iot?view=azure-dotnet&WT.mc_id=iot-0000-dglover)
 
 ---
 
@@ -409,4 +409,4 @@ cat ~/.ssh/id_rsa.pub | ssh user@123.45.56.78 "mkdir ~/.ssh; cat >> ~/.ssh/autho
 References
 
 - [Is there an equivalent to ssh-copy-id for Windows?](https://serverfault.com/questions/224810/is-there-an-equivalent-to-ssh-copy-id-for-windows)
-- [Installation of OpenSSH For Windows Server 2019 and Windows 10](https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse?WT.mc_id=github-blog-dglover)
+- [Installation of OpenSSH For Windows Server 2019 and Windows 10](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse?WT.mc_id=iot-0000-dglover)
